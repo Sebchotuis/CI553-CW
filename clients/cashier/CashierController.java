@@ -3,7 +3,6 @@ package clients.cashier;
 
 /**
  * The Cashier Controller
- * @author M A Smith (c) June 2014
  */
 
 public class CashierController
@@ -26,16 +25,20 @@ public class CashierController
    * Check interaction from view
    * @param pn The product number to be checked
    */
-  public void doCheck( String pn )
-  {
+  public void doCheck( String pn) {
+	  if (pn == null || pn.isEmpty()) {
+	        System.out.println("Error: Product number is empty or null!");
+	        return;
+  }  
+	System.out.println("Checking product with number: " + pn);
     model.doCheck(pn);
   }
 
    /**
    * Buy interaction from view
    */
-  public void doBuy()
-  {
+  public void doBuy() {
+	    System.out.println("Attempting to buy the selected product...");
     model.doBuy();
   }
   

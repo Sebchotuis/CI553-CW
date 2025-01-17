@@ -14,9 +14,9 @@ import java.util.Locale;
  * @version 2.2
  *
  */
-public class Basket extends ArrayList<Product> implements Serializable
+public class Basket extends ArrayList<Product> 
 {
-  private static final long serialVersionUID = 1;
+  //private static final long serialVersionUID = 1;
   private int    theOrderNum = 0;          // Order number
   
   /**
@@ -46,7 +46,14 @@ public class Basket extends ArrayList<Product> implements Serializable
   {
     return theOrderNum;
   }
-  
+  /**
+   * Clears all items from the basket.
+   * This method removes all products from the basket and resets it to empty.
+   */
+  public void clearBasket() {
+      this.clear(); // Clear all items from the ArrayList
+      System.out.println("Basket has been cleared.");
+  }
   /**
    * Add a product to the Basket.
    * Product is appended to the end of the existing products

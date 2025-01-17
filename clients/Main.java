@@ -21,13 +21,17 @@ import middle.LocalMiddleFactory;
 import middle.MiddleFactory;
 
 import javax.swing.*;
+
+import catalogue.Basket;
+import catalogue.Product;
+
 import java.awt.*;
 
 
 /**
  * Starts all the clients  as a single application.
  * Good for testing the system using a single application but no use of RMI.
- * @author  Mike Smith University of Brighton
+ * @author  Sebastian University of Brighton
  * @version 2.0
  */
 class Main
@@ -40,6 +44,7 @@ class Main
   {
     new Main().begin();
   }
+ 
 
   /**
    * Starts test system (Non distributed)
@@ -62,7 +67,26 @@ class Main
     if ( many ) 
       startDisplayGUI_MVC( mlf );
     startCollectionGUI_MVC( mlf );
-  }
+ 
+	    // Add test code here
+	    Basket basket = new Basket();
+
+	    // Add items to the basket
+	    basket.add(new Product("001", "Laptop", 799.99, 0));
+	    basket.add(new Product("002", "Headphones", 29.99, 0));
+
+	    // Display basket details before clearing
+	    System.out.println("Basket before clearing:");
+	    System.out.println(basket.getDetails());
+
+	    // Call the clearBasket() method
+	    basket.clearBasket();
+
+	    // Display basket details after clearing
+	    System.out.println("Basket after clearing:");
+	    System.out.println(basket.getDetails());
+	}
+
   
   public void startCustomerGUI_MVC(MiddleFactory mlf )
   {
